@@ -77,7 +77,7 @@
 						echo '<tr class="text-c">';
 						echo '<td><input type="checkbox" value="1" name=""></td>';
 						echo '<td>'.$row["User_Name"].'</td>';
-						echo '<td><u style="cursor:pointer" class="text-primary" onclick="member_show(\'张三\',\'member-show.html\',\'10001\',\'360\',\'400\')">'.$row["Patient_Name"].'</u></td>';
+						echo '<td><u style="cursor:pointer" class="text-primary" onclick="member_show(\' \' ,\'record.php?id='.$row["User_Name"].'\')">'.$row["Patient_Name"].'</u></td>';
 						echo '<td>'.$male.'</td>';
 						echo '<td>'.$row["Patient_Age"].'</td>';
 						echo '<td>'.$row["Patient_Height"].'(Kg)</td>';

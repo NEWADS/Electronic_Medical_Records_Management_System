@@ -184,7 +184,7 @@ function removeIframeAll(){
 */
 function layer_show(title,url,w,h){
 	if (title == null || title == '') {
-		title=false;
+		title="layer show";
 	};
 	if (url == null || url == '') {
 		url="404.html";
