@@ -15,7 +15,7 @@
 </head>
 <body>
 <nav class="breadcrumb">
-	<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 患者管理 <a class="btn btn-success radius r" style="margin-top:5px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><button class="button" style="vertical-align:middle"onclick="javascrtpt:window.location.href='file:///D:/Dreamweaver12.0/DWproject/software/table/index.html'"><span>注销 </span></button></nav>
+	<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 患者管理 <a class="btn btn-success radius r" style="margin-top:5px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><button class="button" style="vertical-align:middle"onclick="javascrtpt:window.location.href='../abort.php'"><span>注销 </span></button></nav>
 <div class="page-container">
 	<div class="text-c"> 
 	</div>
