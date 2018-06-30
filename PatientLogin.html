@@ -1,0 +1,62 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Website for Software Engineering(Beta Version)</title>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="患者登录" />
+<style type="text/css">
+div{
+width:500px;
+height:40px;
+margin: 0 auto;
+}
+</style>
+<script type="text/javascript">
+function alert0(){
+        var Patient_Name=document.getElementById("Patient_Name").value;
+		var Patient_Key=document.getElementById("Patient_Key").value;
+		if(Patient_Name == ""||Patient_Key == ""){alert("账号或密码不能为空")}
+		else{
+			alert(Patient_Name+"  "+Patient_Key)
+			}
+		}
+</script>
+<!--script type="text/javascript" src="js/alert.js" ></script-->
+</head>
+<body>
+<!--header start here-->
+<form action="" method="post">
+<div class="login-form">
+			<div class="top-login">
+				<span><img src="images/group.png" alt=""/></span>
+			</div>
+			<h1>Patient Login</h1>
+			<div class="login-top" >
+			<form>
+				<div class="login-ic">
+                <i class="m"></i>
+					<input type="text"  id="Patient_Name" placeholder="Patient_ID" />
+					<div class="clear"> </div>
+				</div>
+				<div class="login-ic">
+					<i class="icon"></i>
+					<input type="password"  id="Patient_Key" placeholder="Password" />
+					<div class="clear"> </div>
+				</div>
+                
+				<div >
+				  <center><input type="button" class="button" style="width:100px;align:center"
+ onClick="alert0()" value="LOGIN" /><center>
+
+				</div>
+</form>
+<!--header start here-->
+</body>
+
+</html>
