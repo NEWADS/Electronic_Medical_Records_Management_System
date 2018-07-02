@@ -84,7 +84,7 @@
 						echo '<td>'.$row["Patient_Weight"].'(Kg)</td>';
 						echo '<td>'.$row["Sign_in_time"].'</td>';
 						echo '<td class="td-manage">';
-						echo '<a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\',\'member-add.html\',\'4\',\'\',\'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
+						echo '<a title="编辑" href="javascript:;" onclick="javascrtpt:window.location.href=\'edit.php?id='.$row["User_Name"].'\'" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
 						echo '<a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>';
 						echo '</tr>';
 					}
@@ -168,9 +168,9 @@ function member_start(obj,id){
 	});
 }
 /*用户-编辑*/
-function member_edit(title,url,id,w,h){
-	layer_show(title,url,w,h);
-}
+// function member_edit(title,url,id,w,h){
+// 	layer_show(title,url,w,h);
+// }
 /*密码-修改*/
 function change_password(title,url,id,w,h){
 	layer_show(title,url,w,h);	
