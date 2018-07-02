@@ -69,11 +69,11 @@ body{background:url(222.png);}
 </head>
 <body>
 <article class="page-container">
-	<form action="insert.php" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="<?php echo 'update.php?id='.$_GET["id"]; ?>" method="post" class="form form-horizontal" id="form-member-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span><span class="star-4">患者姓名：</span>：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" value="" placeholder="" id="patientname" name="Patient_Name">
+				<input type="text" class="input-text" value="<?php echo QuerySQL("Patient_Name"); ?>" placeholder="" id="patientname" name="Patient_Name">
 			</div>
 		</div>
 		<div class="row cl">
@@ -90,27 +90,21 @@ body{background:url(222.png);}
 			</div>
 		</div>
         <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者账号名：</label>
-		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="User_Name" id="username">
-			</div>
-		</div>
-        <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者年龄：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="Patient_Age" id="age">
+				<input type="text" class="input-text" value="<?php echo QuerySQL("Patient_Age"); ?>" placeholder="" name="Patient_Age" id="age">
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者身高（单位：cm）：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="Patient_Height" id="hight">
+				<input type="text" class="input-text" value="<?php echo QuerySQL("Patient_Height"); ?>" placeholder="" name="Patient_Height" id="hight">
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者体重（单位：Kg）：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="Patient_Weight" id="wight">
+				<input type="text" class="input-text" value="<?php echo QuerySQL("Patient_Weight"); ?>" placeholder="" name="Patient_Weight" id="wight">
 			</div>
 		</div>
 		<!-- <div class="row cl">
@@ -122,7 +116,7 @@ body{background:url(222.png);}
 		        <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>录入时间：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="年-月-日" name="Sign_in_time" id="indate">
+				<input type="text" class="input-text" value="<?php echo QuerySQL("Sign_in_time"); ?>" placeholder="年-月-日" name="Sign_in_time" id="indate">
 			</div>
 		</div>
 
@@ -149,21 +143,21 @@ body{background:url(222.png);}
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所得疾病：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<textarea name="Disease_Name" cols="" rows="" class="textarea"  placeholder="所得疾病" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Disease_Name" cols="" rows="" class="textarea" defaultvalue="<?php echo QuerySQL("Disease_Name"); ?>" onKeyUp="$.Huitextarealength(this,100)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">病症描述：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<textarea name="Discribe" cols="" rows="" class="textarea"  placeholder="具体描述" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Discribe" cols="" rows="" class="textarea" value="" placeholder="<?php echo QuerySQL("Discribe"); ?>" onKeyUp="$.Huitextarealength(this,100)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">处理方案：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<textarea name="Solution" cols="" rows="" class="textarea"  placeholder="处理方案" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Solution" cols="" rows="" class="textarea" value="" placeholder="<?php echo QuerySQL("Solution"); ?>" onKeyUp="$.Huitextarealength(this,100)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
