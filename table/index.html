@@ -25,15 +25,15 @@ body{font:normal 15px/1.5 Arial, Helvetica, Free Sans, sans-serif;color: #222;ba
 
     <!-- Begin Form -->
 
-    <form id="my-form">
+    <form action="insert.php" method="post" id="my-form">
 
         <section name="添加患者">
 
-          <div><label>患者名:</label><input id="username" name="username" type="text"/></div>
-           <div><label>患者ID:</label><input id="email" name="email" data-ideal="required email" type="email"/></div>
+          <div><label>患者姓名:</label><input id="Patientname" name="Patient_Name" type="text"/></div>
+           <div><label>患者ID:</label><input id="Username" name="User_Name" data-ideal="required email" type="text"/></div>
           <div><label>初始密码:</label><input id="pass" name="password" type="password"/></div>
           
-          <div><label>出生日期:</label><input name="date" class="datepicker" data-ideal="date" type="text" placeholder="月/日/年"/></div>
+          <div><label>出生日期:</label><input name="date" class="input-text" data-ideal="date" type="text" placeholder="年-月-日"/></div>
          
           <div><label>所属医生:</label><input name="website" data-ideal="url" type="text"/></div>
         </section>

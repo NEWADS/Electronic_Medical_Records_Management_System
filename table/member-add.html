@@ -1,4 +1,3 @@
-<!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -31,76 +30,72 @@ body{background:url(222.png);}
 </head>
 <body>
 <article class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="insert.php" method="post" class="form form-horizontal" id="form-member-add">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span><span class="star-4">患者姓名</span>：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span><span class="star-4">患者姓名：</span>：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="" id="patientname" name="Patient_Name">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
 			<div class="formControls col-xs-8 col-sm-6 skin-minimal">
 				<div class="radio-box">
-					<input name="sex" type="radio" id="sex-1" checked>
+					<input name="Patient_Male" type="radio" id="sex-1" value="M" checked>
 					<label for="sex-1">男</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="sex">
+					<input type="radio" id="sex-2" name="Patient_Male" value="W">
 					<label for="sex-2">女</label>
-				</div>
-				<div class="radio-box">
-					<input type="radio" id="sex-3" name="sex">
-					<label for="sex-3">保密</label>
 				</div>
 			</div>
 		</div>
         <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者ID：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者账号名：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="email" id="email">
+				<input type="text" class="input-text" placeholder="" name="User_Name" id="username">
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者年龄：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="age" id="age">
+				<input type="text" class="input-text" placeholder="" name="Patient_Age" id="age">
 			</div>
 		</div>
         <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者身高：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者身高（单位：cm）：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="hight" id="hight">
+				<input type="text" class="input-text" placeholder="" name="Patient_Height" id="hight">
 			</div>
 		</div>
         <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者体重：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>患者体重（单位：Kg）：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="" name="wight" id="wight">
+				<input type="text" class="input-text" placeholder="" name="Patient_Weight" id="wight">
 			</div>
 		</div>
-		<div class="row cl">
+		<!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
 			<div class="formControls col-xs-8 col-sm-6">
 				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
 			</div>
-		</div>
+		</div> -->
 		        <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>录入时间：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="月/日/年" name="indate" id="indate">
+				<input type="text" class="input-text" placeholder="年-月-日" name="Sign_in_time" id="indate">
 			</div>
 		</div>
 
-	  <div class="row cl">
+	  <!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">附件：</label>
 			<div class="formControls col-xs-8 col-sm-6"> <span class="btn-upload form-group">
 				<input class="input-text upload-url" type="text" name="uploadfile" id="uploadfile" readonly nullmsg="请添加附件！" style="width:200px">
 				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
 				<input type="file" multiple name="file-2" class="input-file">
 				</span> </div>
-		</div>
-		<div class="row cl">
+		</div> -->
+		<!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所在城市：</label>
 			<div class="formControls col-xs-8 col-sm-6"> <span class="select-box">
 				<select class="select" size="1" name="city">
@@ -111,25 +106,25 @@ body{background:url(222.png);}
                     <option value="4">沈阳</option>
 				</select>
 				</span> </div>
-		</div>
+		</div> -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所得疾病：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="所得疾病" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Disease_Name" cols="" rows="" class="textarea"  placeholder="所得疾病" onKeyUp="$.Huitextarealength(this,100)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">病症描述：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="具体描述" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Discribe" cols="" rows="" class="textarea"  placeholder="具体描述" onKeyUp="$.Huitextarealength(this,100)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">处理方案：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="处理方案" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Solution" cols="" rows="" class="textarea"  placeholder="处理方案" onKeyUp="$.Huitextarealength(this,100)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>

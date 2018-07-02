@@ -15,11 +15,11 @@
 </head>
 <body>
 <nav class="breadcrumb">
-	<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 患者管理 <a class="btn btn-success radius r" style="margin-top:5px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><button class="button" style="vertical-align:middle"onclick="javascrtpt:window.location.href='../abort.php'"><span>注销 </span></button></nav>
+	<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 患者管理 <a class="btn btn-success radius r" style="margin-top:5px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a><button class="button" style="vertical-align:middle" onclick="javascrtpt:window.location.href='../abort.php'"><span>注销 </span></button></nav>
 <div class="page-container">
 	<div class="text-c"> 
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','index.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a onclick="javascrtpt:window.location.href='member-add.html'" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
@@ -80,8 +80,8 @@
 						echo '<td><u style="cursor:pointer" class="text-primary" onclick="member_show(\' \' ,\'record.php?id='.$row["User_Name"].'\')">'.$row["Patient_Name"].'</u></td>';
 						echo '<td>'.$male.'</td>';
 						echo '<td>'.$row["Patient_Age"].'</td>';
-						echo '<td>'.$row["Patient_Height"].'(Kg)</td>';
-						echo '<td>'.$row["Patient_Weight"].'(cm)</td>';
+						echo '<td>'.$row["Patient_Height"].'(cm)</td>';
+						echo '<td>'.$row["Patient_Weight"].'(Kg)</td>';
 						echo '<td>'.$row["Sign_in_time"].'</td>';
 						echo '<td class="td-manage">';
 						echo '<a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\',\'member-add.html\',\'4\',\'\',\'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
@@ -120,10 +120,10 @@ $(function(){
 	});
 	
 });
-/*用户-添加*/
-function member_add(title,url,w,h){
-	layer_show(title,url,w,h);
-}
+// /*用户-添加*/
+// function member_add(title,url,w,h){
+// 	layer_show(title,url,w,h);
+// }
 /*用户-查看*/
 function member_show(title,url,id,w,h){
 	layer_show(title,url,w,h);
