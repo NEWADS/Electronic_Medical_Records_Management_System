@@ -1,6 +1,7 @@
 <?php
 //重置变量为空值。
- session_start();
+ require('.\table\function.php');
+ mysqli_close($con);
  unset($_SESSION['id']);
  $done = "注销成功！";
  echo "<script language=\"JavaScript\">\r\n";
