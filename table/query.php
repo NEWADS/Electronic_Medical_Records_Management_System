@@ -54,9 +54,9 @@
 						echo '<td>'.QuerySQL("Patient_Weight", $row["User_Name"]).'(Kg)</td>';
 						echo '<td>'.QuerySQL("Sign_in_time", $row["User_Name"]).'</td>';
 						echo '<td class="td-manage">';
-						echo '<a title="编辑" href="javascript:;" onclick="javascrtpt:window.location.href=\'edit.php?id='.$row["User_Name"].'\'" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
-						echo '<a title="删除" href="javascript:;" onclick="javascrtpt:window.location.href=\'delete.php?id='.$row["User_Name"].'\'" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>';
-						echo '</tr>';
+						echo '<a title="编辑" href="javascript:;" onclick="javascript:window.location.href=\'edit.php?id='.$row["User_Name"].'\'" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
+						?> <a title='删除' onclick="del('<?php echo $row["User_Name"]; ?>')" class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a></td>
+						<?php echo '</tr>';
 					}
 			}
 
@@ -88,6 +88,7 @@ $(function(){
 	});
 	
 });
+
 // /*用户-添加*/
 // function member_add(title,url,w,h){
 // 	layer_show(title,url,w,h);
@@ -95,6 +96,21 @@ $(function(){
 /*用户-查看*/
 function member_show(title,url,id,w,h){
 	layer_show(title,url,w,h);
+}
+</script>
+<script language="JavaScript">
+function del(name)
+{
+	var sure=confirm("确定删除？");    
+	if( 1 == sure )
+	{
+		window.location.href= "delete.php?id="+ name; 
+		//echo "location.replace(\"delete.php?id='$row[User_Name]'\")" ?>
+    }
+	else 
+	{
+    	alert('未删除');
+	}
 }
 </script> 
 </body>
