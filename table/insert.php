@@ -4,21 +4,7 @@
  // echo "Connecting MySQL...";
  // echo "<br>";
  //连接数据库。
- session_start();
- $con = mysqli_connect("localhost","root","","doctor_for_test_se");
- //判断是否连接成功。
- if (!$con)
-  {
-  die('Could not connect: ' . mysqli_error());
-  }
-
- else
-  {
-      echo "Connected to MySQL!";
-      echo "<br>";
-  }
- //设定检索数据库的编码方式为UTF-8。
- mysqli_query($con,'set names utf8');
+ require('function.php');
  $id = $_SESSION['id'];
  if (empty($_POST["Patient_Name"]) || 
      empty($id) || 
@@ -39,31 +25,42 @@
  }
  else
  {
-    $sql = "INSERT INTO patient_test (Patient_Name, 
-                                      User_Name, 
-                                      Doctor_ID, 
-                                      Patient_Male, 
-                                      Patient_Age, 
-                                      Patient_Height, 
-                                      Patient_Weight, 
-                                      Sign_in_time,
-                                      Disease_Name,
-                                      Discribe,
-                                      Solution)
-    VALUES ('$_POST[Patient_Name]', 
-            '$_POST[User_Name]', 
-            '$id', 
-            '$_POST[Patient_Male]', 
-            '$_POST[Patient_Age]',
-            '$_POST[Patient_Height]',
-            '$_POST[Patient_Weight]',
-            '$_POST[Sign_in_time]',
-            '$_POST[Disease_Name]',
-            '$_POST[Discribe]',
-            '$_POST[Solution]');";
+    // $sql = "INSERT INTO patient_test (Patient_Name, 
+    //                                   User_Name, 
+    //                                   Doctor_ID, 
+    //                                   Patient_Male, 
+    //                                   Patient_Age, 
+    //                                   Patient_Height, 
+    //                                   Patient_Weight, 
+    //                                   Sign_in_time,
+    //                                   Disease_Name,
+    //                                   Discribe,
+    //                                   Solution)
+    // VALUES ('$_POST[Patient_Name]', 
+    //         '$_POST[User_Name]', 
+    //         '$id', 
+    //         '$_POST[Patient_Male]', 
+    //         '$_POST[Patient_Age]',
+    //         '$_POST[Patient_Height]',
+    //         '$_POST[Patient_Weight]',
+    //         '$_POST[Sign_in_time]',
+    //         '$_POST[Disease_Name]',
+    //         '$_POST[Discribe]',
+    //         '$_POST[Solution]');";
+    $ins = [ $_POST["Patient_Name"],
+             $_POST["User_Name"],
+             $id,
+             $_POST["Patient_Male"],
+             $_POST["Patient_Age"],
+             $_POST["Patient_Height"],
+             $_POST["Patient_Weight"],
+             $_POST["Sign_in_time"],
+             $_POST["Disease_Name"],
+             $_POST["Discribe"],
+             $_POST["Solution"]];
  }
 
- if (mysqli_query($con, $sql) === TRUE)
+ if (insertPatient($ins) == 1)
     {
         //测试弹窗
         $success =  "插入成功！";
@@ -82,7 +79,7 @@
         echo "<script language=\"JavaScript\">\r\n";
         echo "alert('{$fail}');\r\n"; 
         //通过引入JS，实现页面跳转。
-        echo "location.replace(\"query.php\");\r\n";
+        //echo "location.replace(\"query.php\");\r\n";
         echo "</script>";
         //<meta http-equiv="refresh\\" content= "2;url= http://project1/input_case.php">;
         //header('Location: http://project1/input_case.php');

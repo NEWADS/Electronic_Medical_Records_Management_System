@@ -36,62 +36,30 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!-- <tr class="text-c">
-				<td><input type="checkbox" value="1" name=""></td>
-				<td>1</td>
-				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u></td>
-				<td>男</td>
-				<td>13000000000</td>
-				<td>2018-6-11 11:11:11</td>
-				<td class="td-status"><span class="label label-success radius">已启用</span></td>
-				<td class="td-manage">
-                <a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
-                <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-                <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-			</tr> -->
 			<?php
-			 session_start();
-			 $con = mysqli_connect("localhost","root","","doctor_for_test_se");
-			 if (!$con)
-			  {
-				die('Could not connect: ' . mysqli_error());
-			  }
-			 mysqli_query($con,'set names utf8');
-			 $result_patient = mysqli_query($con,"SELECT Patient_Name,Patient_Age,Patient_Height,Patient_Weight,Patient_Male,User_Name,Sign_in_time,Doctor_ID FROM patient_test");
-			 $result_doc = mysqli_query($con, "SELECT Doctor_ID, Doctor_Name FROM doctor_a");
-			 $doc = mysqli_fetch_all($result_doc);
+			 require("function.php");
+			 $result_patient = mysqli_query($con,"SELECT User_Name, Doctor_ID FROM patient_test");
 			 while($row = mysqli_fetch_assoc($result_patient))
 			 {
-				if ($row["Patient_Male"]== 'M' )
-				{
-					$male = '男';
-				}
-				else
-				{
-					$male = '女';
-				}
-				foreach ($doc as $value)
-				{
-					if ($row["Doctor_ID"] == $value[0] && $row["Doctor_ID"] == $_SESSION['id'])
+
+					if ($row["Doctor_ID"] == $_SESSION['id'])
 					{
 						echo '<tr class="text-c">';
 						echo '<td><input type="checkbox" value="1" name=""></td>';
 						echo '<td>'.$row["User_Name"].'</td>';
-						echo '<td><u style="cursor:pointer" class="text-primary" onclick="member_show(\' \' ,\'record.php?id='.$row["User_Name"].'\')">'.$row["Patient_Name"].'</u></td>';
-						echo '<td>'.$male.'</td>';
-						echo '<td>'.$row["Patient_Age"].'</td>';
-						echo '<td>'.$row["Patient_Height"].'(cm)</td>';
-						echo '<td>'.$row["Patient_Weight"].'(Kg)</td>';
-						echo '<td>'.$row["Sign_in_time"].'</td>';
+						echo '<td><u style="cursor:pointer" class="text-primary" onclick="member_show(\' \' ,\'record.php?id='.$row["User_Name"].'\')">'.QuerySQL('Patient_Name', $row["User_Name"]).'</u></td>';
+						echo '<td>'.QuerySQL("Patient_Male", $row["User_Name"]).'</td>';
+						echo '<td>'.QuerySQL("Patient_Age", $row["User_Name"]).'</td>';
+						echo '<td>'.QuerySQL("Patient_Height", $row["User_Name"]).'(cm)</td>';
+						echo '<td>'.QuerySQL("Patient_Weight", $row["User_Name"]).'(Kg)</td>';
+						echo '<td>'.QuerySQL("Sign_in_time", $row["User_Name"]).'</td>';
 						echo '<td class="td-manage">';
 						echo '<a title="编辑" href="javascript:;" onclick="javascrtpt:window.location.href=\'edit.php?id='.$row["User_Name"].'\'" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
-						echo '<a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>';
+						echo '<a title="删除" href="javascript:;" onclick="" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>';
 						echo '</tr>';
 					}
-				}
+			}
 
-			 }
-			 mysqli_close($con);
 			?>
 		</tbody>
 	</table>
@@ -127,70 +95,6 @@ $(function(){
 /*用户-查看*/
 function member_show(title,url,id,w,h){
 	layer_show(title,url,w,h);
-}
-/*用户-停用*/
-function member_stop(obj,id){
-	layer.confirm('确认要停用吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
-				$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
-				$(obj).remove();
-				layer.msg('已停用!',{icon: 5,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
-}
-
-/*用户-启用*/
-function member_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
-				$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-				$(obj).remove();
-				layer.msg('已启用!',{icon: 6,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});
-	});
-}
-/*用户-编辑*/
-// function member_edit(title,url,id,w,h){
-// 	layer_show(title,url,w,h);
-// }
-/*密码-修改*/
-function change_password(title,url,id,w,h){
-	layer_show(title,url,w,h);	
-}
-/*用户-删除*/
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
 }
 </script> 
 </body>

@@ -1,40 +1,5 @@
 ﻿<?php
- session_start();
- function QuerySQL($Dname)
- {
-	 $con = mysqli_connect("localhost","root","","doctor_for_test_se");
-	 mysqli_query($con,'set names utf8');
-	 $result_patient = mysqli_query($con,"SELECT Patient_Name,
-	 																							Patient_Age,
-																								Patient_Height,
-																								Patient_Weight,
-																								Patient_Male,
-																								User_Name,
-																								Sign_in_time,
-																								Doctor_ID,
-																								Disease_Name,
-																								Discribe,
-																								Solution FROM patient_test");
-	 $result_doc = mysqli_query($con, "SELECT Doctor_ID, Doctor_Name FROM doctor_a");
-	 $doc = mysqli_fetch_all($result_doc);
-	 while($row = mysqli_fetch_assoc($result_patient))
-	 {
-		if ($row["Patient_Male"]== 'M' )
-		{
-			$row["Patient_Male"] = '男';
-		}
-		else
-		{
-			$row["Patient_Male"] = '女';
-		}
-		if ($row["User_Name"] == $_GET["id"])
-		{
-			return $row[$Dname];
-			break;
-		}
-	 }
- }
-
+ require('function.php');
 ?>
 
 <!DOCTYPE HTML>
@@ -69,49 +34,49 @@
 	  <table height="649" class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="125" height="48">患者姓名</th>
-				<th width="360" bgcolor="#FFFFFF"><?php echo QuerySQL("Patient_Name"); ?></th>
+				<th width="125" height="48" bgcolor="#F5FAFE">患者姓名</th>
+				<th width="360" bgcolor="#FFFFFF"><?php echo QuerySQL('Patient_Name', $_GET['id']); ?></th>
 				<th width="125" bgcolor="#F5FAFE">患者性别</th>
-				<th width="307"><?php echo QuerySQL("Patient_Male"); ?></th>
+				<th width="307"><?php echo QuerySQL("Patient_Male", $_GET['id']); ?></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr class="text-c">
-			  <td height="37" bgcolor="#F5FAFE"><strong>年龄</strong></td>
-			  <td><?php echo QuerySQL("Patient_Age"); ?></td>
-			  <td bgcolor="#F5FAFE"><strong>账号</strong></td>
-			  <td><?php echo QuerySQL("User_Name"); ?></td>
+			  <th height="37" bgcolor="#F5FAFE"><strong>年龄</strong></th>
+			  <th><?php echo QuerySQL("Patient_Age", $_GET['id']); ?></th>
+			  <th bgcolor="#F5FAFE"><strong>账号</strong></th>
+			  <th><?php echo QuerySQL("User_Name", $_GET['id']); ?></th>
 		  </tr>
 			<tr class="text-c">
-				<td height="37" bgcolor="#F5FAFE"><strong>体重</strong></td>
-				<td><?php echo QuerySQL("Patient_Weight")."Kg"; ?></td>
-				<td bgcolor="#F5FAFE"><strong>身高</strong></td>
-				<td><?php echo QuerySQL("Patient_Height")."cm"; ?></td>
+				<th height="37" bgcolor="#F5FAFE"><strong>体重</strong></th>
+				<th><?php echo QuerySQL("Patient_Weight", $_GET['id'])."Kg"; ?></th>
+				<th bgcolor="#F5FAFE"><strong>身高</strong></th>
+				<th><?php echo QuerySQL("Patient_Height", $_GET['id'])."cm"; ?></th>
 			</tr>
 			<tr class="text-c">
-			  <td height="37" colspan="2" bgcolor="#F5FAFE"><strong>病例录入时间</strong></td>
-			  <td colspan="2" bgcolor="#FFFFFF"><?php echo QuerySQL("Sign_in_time"); ?></td>
+			  <th height="37" colspan="2" bgcolor="#F5FAFE"><strong>病例录入时间</strong></th>
+			  <th colspan="2" bgcolor="#FFFFFF"><?php echo QuerySQL("Sign_in_time", $_GET['id']); ?></th>
 		  </tr>
 			<tr class="text-c">
-			  <td height="37" colspan="2" bgcolor="#F5FAFE"><strong>所得疾病</strong></td>
-			  <td colspan="2" bgcolor="#FFFFFF"><?php echo QuerySQL("Disease_Name"); ?></td>
+			  <th height="37" colspan="2" bgcolor="#F5FAFE"><strong>所得疾病</strong></th>
+			  <th colspan="2" bgcolor="#FFFFFF"><?php echo QuerySQL("Disease_Name", $_GET['id']); ?></th>
 		  </tr>
 			<tr class="text-c">
-			  <td height="37" colspan="4" bgcolor="#F5FAFE"><strong class="seven"> 病症描述</strong></td>
+			  <th height="37" colspan="4" bgcolor="#F5FAFE"><strong class="seven"> 病症描述</strong></th>
 		  </tr>
 			<tr class="text-c">
-			  <td height="111" colspan="4" bgcolor="#FFFFFF"><?php echo QuerySQL("Discribe"); ?></td>
+			  <th height="111" colspan="4" bgcolor="#FFFFFF"><?php echo QuerySQL("Discribe", $_GET['id']); ?></th>
 		  </tr>
 			<tr class="text-c">
-			  <td height="37" colspan="4" bgcolor="#F5FAFE"><strong>解决方案</strong></td>
+			  <th height="37" colspan="4" bgcolor="#F5FAFE"><strong>解决方案</strong></th>
 		  </tr>
 			<tr class="text-c">
-			  <td height="111" colspan="4" bgcolor="#FFFFFF"><?php echo QuerySQL("Solution"); ?></td>
+			  <th height="111" colspan="4" bgcolor="#FFFFFF"><?php echo QuerySQL("Solution", $_GET['id']); ?></th>
 		  </tr>
-			<!-- <tr class="text-c">
-			  <td height="44" colspan="2" bgcolor="#F5FAFE"><strong>管理医生</strong></td>
-			  <td height="44" colspan="2" bgcolor="#FFFFFF"><?php echo QuerySQL("Patient_Male"); ?></td>
-		  </tr> -->
+			<tr class="text-c">
+			  <th height="44" colspan="2" bgcolor="#F5FAFE"><strong>管理医生</strong></th>
+			  <th height="44" colspan="2" bgcolor="#FFFFFF"><?php echo QuerySQL("Doctor_ID", $_GET['id']); ?></th>
+		  </tr>
 		</tbody>
 	</table>
 </div>

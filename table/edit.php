@@ -71,7 +71,7 @@ body{background:url(222.png);}
 <article class="page-container">
 	<form action="<?php echo 'update.php?id='.$_GET["id"]; ?>" method="post" class="form form-horizontal" id="form-member-add">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span><span class="star-4">患者姓名：</span>：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span><span class="star-4">患者姓名：</span></label>
 			<div class="formControls col-xs-8 col-sm-6">
 				<input type="text" class="input-text" value="<?php echo QuerySQL("Patient_Name"); ?>" placeholder="" id="patientname" name="Patient_Name">
 			</div>
