@@ -124,7 +124,7 @@
     {
         if($array[$x] == '')
         {
-            $array[$x] = NULL;
+            $array[$x] = NULL   ;
         }
     }
     $sql = "UPDATE patient_test SET Patient_Name = '$array[0]',

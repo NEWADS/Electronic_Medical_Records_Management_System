@@ -55,7 +55,7 @@
 						echo '<td>'.QuerySQL("Sign_in_time", $row["User_Name"]).'</td>';
 						echo '<td class="td-manage">';
 						echo '<a title="编辑" href="javascript:;" onclick="javascrtpt:window.location.href=\'edit.php?id='.$row["User_Name"].'\'" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
-						echo '<a title="删除" href="javascript:;" onclick="" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>';
+						echo '<a title="删除" href="javascript:;" onclick="javascrtpt:window.location.href=\'delete.php?id='.$row["User_Name"].'\'" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>';
 						echo '</tr>';
 					}
 			}
