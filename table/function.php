@@ -11,7 +11,7 @@
  function deletePatient($Name)
  {
      global $con;
-     $del = 'DELETE FROM patient_test WHERE User_Name = '.$Name;
+     $del = "DELETE FROM patient_test WHERE User_Name = '$Name'";
      if (mysqli_query($con, $del) === TRUE)
      {
          return 1;
