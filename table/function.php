@@ -7,7 +7,7 @@
  }
  mysqli_query($con,"set names utf8");
  
- function LoginPatient($User_Name, $Key)
+ function LoginPatient($User_Name, $key)
  {
      global $con;
      if($key == "")
@@ -18,9 +18,9 @@
      $result_patient = mysqli_query($con,$sql);
      while($row = mysqli_fetch_assoc($result_patient))
      {
-         if($row[0] == $User_Name || $row[1] == $key)
+         if($row["User_Name"] == $User_Name || $row["Patient_Key"] == $key)
          {
-             $_SESSION['id'] = $row[2];
+             $_SESSION['id'] = $row["Doctor_ID"];
              return 1;
              break;
          }
