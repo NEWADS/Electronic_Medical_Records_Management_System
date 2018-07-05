@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -9,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="keywords" content="患者登录" />
+<meta name="keywords" content="医生登录" />
 <style type="text/css">
 div{
 width:500px;
@@ -17,46 +16,47 @@ height:40px;
 margin: 0 auto;
 }
 </style>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 function alert0(){
-        var Patient_Name=document.getElementById("Patient_Name").value;
-		var Patient_Key=document.getElementById("Patient_Key").value;
-		if(Patient_Name == ""||Patient_Key == ""){alert("账号或密码不能为空")}
+        var Doctor_ID=document.getElementById("Doctor_ID").value;
+		var Doctor_Key=document.getElementById("Doctor_Key").value;
+		if(Doctor_ID == ""||Doctor_Key == ""){
+			alert("账号或密码不能为空")
+			}
 		else{
-			alert(Patient_Name+"  "+Patient_Key)
+			
 			}
 		}
-</script>
-<!--script type="text/javascript" src="js/alert.js" ></script-->
+</script> -->
 </head>
 <body>
 <!--header start here-->
-<form action="" method="post">
+<form action="login_P.php" method="post">
 <div class="login-form">
 			<div class="top-login">
-				<span><img src="images/group.png" alt=""/></span>
+				<span><img src="images/777.png" alt=""/></span>
 			</div>
-			<h1>Patient Login</h1>
-			<div class="login-top" >
-			<form>
+			
+			<h1>Doctor Login</h1>
+			<div class="login-top">
 				<div class="login-ic">
-                <i class="m"></i>
-					<input type="text"  id="Patient_Name" placeholder="Patient_ID" />
+                	<i class="m"></i>
+					<input type="text"  name="User_Name" placeholder="请输入账号" />
 					<div class="clear"> </div>
 				</div>
 				<div class="login-ic">
 					<i class="icon"></i>
-					<input type="password"  id="Patient_Key" placeholder="Password" />
+					<input type="password" name="Patient_Key" placeholder="请输入密码" />
 					<div class="clear"> </div>
 				</div>
-                
-				<div >
-				  <center><input type="button" class="button" style="width:100px;align:center"
- onClick="alert0()" value="LOGIN" /><center>
-
+			
+				<div>
+					<center><input type="submit" class="button" style="width:517px" value="Login" /><center>
 				</div>
+			</div>
+</div>
 </form>
+
 <!--header start here-->
 </body>
-
 </html>

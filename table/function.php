@@ -6,7 +6,30 @@
     die("Connection Failed!");
  }
  mysqli_query($con,"set names utf8");
-
+ 
+ function LoginPatient($User_Name, $Key)
+ {
+     global $con;
+     if($key == "")
+     {
+         $key = NULL;
+     }
+     $sql = "SELECT User_Name, Patient_Key, Doctor_ID FROM patient_test";
+     $result_patient = mysqli_query($con,$sql);
+     while($row = mysqli_fetch_assoc($result_patient))
+     {
+         if($row[0] == $User_Name || $row[1] == $key)
+         {
+             $_SESSION['id'] = $row[2];
+             return 1;
+             break;
+         }
+         else
+         {
+             return 0;
+         }
+     }
+ }
  
  function deletePatient($Name)
  {
