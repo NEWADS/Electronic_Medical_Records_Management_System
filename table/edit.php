@@ -64,7 +64,7 @@
 
 <title>Website for Software Engineering(Beta Version)</title>
 <style type="text/css">
-body{background:url(222.png);}
+/* body{background:url(pic.png);} */
 </style>
 </head>
 <body>
@@ -143,21 +143,21 @@ body{background:url(222.png);}
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所得疾病：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<textarea name="Disease_Name" cols="" rows="" class="textarea" defaultvalue="<?php echo QuerySQL("Disease_Name"); ?>" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Disease_Name" cols="" rows="" class="textarea" defaultvalue="" onKeyUp="$.Huitextarealength(this,100)"><?php echo QuerySQL("Disease_Name"); ?></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">病症描述：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<textarea name="Discribe" cols="" rows="" class="textarea" value="" placeholder="<?php echo QuerySQL("Discribe"); ?>" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Discribe" cols="" rows="" class="textarea" value="" placeholder="" onKeyUp="$.Huitextarealength(this,100)"><?php echo QuerySQL("Discribe"); ?></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">处理方案：</label>
 		  <div class="formControls col-xs-8 col-sm-6">
-				<textarea name="Solution" cols="" rows="" class="textarea" value="" placeholder="<?php echo QuerySQL("Solution"); ?>" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="Solution" cols="" rows="" class="textarea" value="" placeholder="" onKeyUp="$.Huitextarealength(this,100)"><?php echo QuerySQL("Solution"); ?></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>

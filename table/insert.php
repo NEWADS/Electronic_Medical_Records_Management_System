@@ -13,10 +13,11 @@
      empty($_POST["Patient_Age"]) || 
      empty($_POST["Patient_Height"])|| 
      empty($_POST["Patient_Weight"]) || 
-     empty($_POST["Sign_in_time"]))
+     empty($_POST["Sign_in_time"]) ||
+     empty($_POST["Disease_Name"]))
  {
     //测试弹窗
-    $fail = "插入失败！输入值不能为空！";
+    $fail = "添加失败！输入值不能为空！";
     echo "<script language=\"JavaScript\">\r\n";
     echo "alert('{$fail}');\r\n"; 
     //通过引入JS，实现页面跳转。
@@ -74,12 +75,14 @@
     } 
  else
     {
+
         //测试弹窗
         $fail = "插入失败！";
         echo "<script language=\"JavaScript\">\r\n";
-        echo "alert('{$fail}');\r\n"; 
+        echo "alert('{$fail}');\r\n";
+        echo "alert('{$res}');\r\n";
         //通过引入JS，实现页面跳转。
-        //echo "location.replace(\"query.php\");\r\n";
+        echo "location.replace(\"query.php\");\r\n";
         echo "</script>";
         //<meta http-equiv="refresh\\" content= "2;url= http://project1/input_case.php">;
         //header('Location: http://project1/input_case.php');

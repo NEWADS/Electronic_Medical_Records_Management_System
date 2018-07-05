@@ -5,7 +5,7 @@
  {
     die("Connection Failed!");
  }
- mysqli_query($con,'set names utf8');
+ mysqli_query($con,"set names utf8");
 
  
  function deletePatient($Name)
@@ -78,12 +78,12 @@
      $len = count($array);
      for ($x=0;$x<$len;$x++)
      {
-        if($array[$x] == '')
+        if($array[$x] == '' || $array[$x] == NULL)
         {
-            $array[$x] = NULL;
+            $array[$x] = '此内容空缺！';
         }
      }
-     $sql = 'INSERT INTO patient_test (Patient_Name,
+     $sql = "INSERT INTO patient_test (Patient_Name,
                                        User_Name,
                                        Doctor_ID,
                                        Patient_Male,
@@ -94,25 +94,56 @@
                                        Disease_Name,
                                        Discribe,
                                        Solution)
-        VALUES ('.$array[0].',
-                '.$array[1].',
-                '.$array[2].',
-                '.$array[3].',
-                '.$array[4].',
-                '.$array[5].',
-                '.$array[6].',
-                '.$array[7].',
-                '.$array[8].',
-                '.$array[9].',
-                '.$array[10].');';
+        VALUES ('$array[0]',
+                '$array[1]',
+                '$array[2]',
+                '$array[3]',
+                '$array[4]',
+                '$array[5]',
+                '$array[6]',
+                '$array[7]',
+                '$array[8]',
+                '$array[9]',
+                '$array[10]');";
      if (mysqli_query($con, $sql) === TRUE)
      {
          return 1;
      }
      else
      {
-         return 0;
+         return $sql;
      }
 
+ }
+
+ function updatePatient($array)
+ {
+    global $con;
+    $len = count($array);
+    for ($x=0;$x<$len;$x++)
+    {
+        if($array[$x] == '')
+        {
+            $array[$x] = NULL;
+        }
+    }
+    $sql = "UPDATE patient_test SET Patient_Name = '$array[0]',
+                                    Patient_Male = '$array[3]',
+                                    Patient_Age = '$array[4]',
+                                    Patient_Height = '$array[5]',
+                                    Patient_Weight = '$array[6]',
+                                    Sign_in_time = '$array[7]',
+                                    Disease_Name = '$array[8]',
+                                    Discribe = '$array[9]',
+                                    Solution = '$array[10]'
+                                WHERE patient_test.User_Name = '$array[1]'" ;
+     if (mysqli_query($con, $sql) === TRUE)
+     {
+         return 1;
+     }
+     else
+     {
+         return $sql;
+     } 
  }
 ?>
