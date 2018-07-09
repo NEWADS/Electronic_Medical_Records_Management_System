@@ -18,10 +18,15 @@
      $result_patient = mysqli_query($con,$sql);
      while($row = mysqli_fetch_assoc($result_patient))
      {
-         if($row["User_Name"] == $User_Name || $row["Patient_Key"] == $key)
+         if($row["User_Name"] == $User_Name || $row["Patient_Key"] == NULL || $key == NULL)
          {
-             $_SESSION['id'] = $row["Doctor_ID"];
-             return 1;
+             return $_SESSION['id'] = $row["Doctor_ID"];
+             break;
+         }
+         elseif ($row["User_Name"] == $User_Name || $row["Patient_Key"] != NULL || $key == $row["Patient_Key"]) 
+         {
+             # code...
+             return $_SESSION['id'] = $row["Doctor_ID"];
              break;
          }
          else
